@@ -1,24 +1,4 @@
-(function ($) {
-
-  // var fullHeight = function () {
-
-  //   $('.js-fullheight').css('height', $(window).height());
-  //   $(window).resize(function () {
-  //     $('.js-fullheight').css('height', $(window).height());
-  //   });
-
-  // };
-  // fullHeight();
-
-
-
-  //Code To Toggle Side Menubar
-  $('#sidebarCollapse').on('click', function () {
-    $('#sidebar').toggleClass('active');
-  });
-
-
-  //Code to copy Hex code and show copied message
+document.addEventListener("DOMContentLoaded", function (event) {
   $('.palette_body').click(function () {
     var input = $("<input>");
     var color = $(this).children(".color-hex").text();
@@ -28,6 +8,8 @@
     input.remove();
     $('.copied').fadeIn().delay(2000).fadeOut();
   });
+
+  //Code below is used to store Hex Code in an array an append it in HTML using DOM selector.
   const divs = document.querySelectorAll('.palette_body');
   const spans = document.querySelectorAll('.color_code');
 
@@ -82,11 +64,9 @@
     '#454553'
   ];
 
-  for (let i in divs) {
+  for (let i = 0; i < colors.length; i++) {
     divs[i].style.background = colors[i];
     spans[i].innerHTML = colors[i];
   };
-
-})(jQuery);
-
-//Code below is used to store Hex Code in an array an append it in HTML using DOM selector.
+  //Color Palette Code ends here
+});
